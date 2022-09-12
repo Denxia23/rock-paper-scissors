@@ -34,7 +34,7 @@ function playRound(playerChoice,computerChoice) {
     return roundWinner; 
 }
 
-function Game() {
+function game() {
     let playerChoice;
     let computerChoice;
     let playerScore = 0;
@@ -67,5 +67,5 @@ function Game() {
     console.log("The Winner is " + gameWinner)
 }
 
-Game()
+game()
 
