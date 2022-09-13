@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    color: #636363;
+}
+
+body {
+    background-color: #FAFAFA;
+    height: 100vh;
+    
+}
+
+h1 {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1rem;
+    font-size: 4.8rem;
+}
+
+p {
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+}
+
+/* Intro */
+.title {
+    transform: translate(50%, -50%);
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    text-align: center;
+    width: 75%;
+    animation: intro-animation 2.5s ease 0.8s forwards;
+    opacity: 0;
+    display: none;
+}
+/* End Intro */
+
+/* Game Info */
+#game-info .game-info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#game-info .player-points,
+#game-info .cpu-points {
+    text-align: center;
+}
+
+#game-info .p-points,
+#game-info .c-points {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#game-info .round {
+    font-weight: 600;
+}
+
+/* End Game Info */
+
+/* Keyframes */
+@keyframes intro-animation {    
+    0% {
+        opacity: 0;
+    }
+    
+    40% {
+        opacity: 1;
+        top: 50%;
+    }
+
+    100% {
+        top: -5%;
+        opacity: 0;
+    }
+}
+
+
+/* End Keyframes */
