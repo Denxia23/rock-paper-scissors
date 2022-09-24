@@ -24,6 +24,12 @@ h1 {
     font-size: 4.8rem;
 }
 
+h2 {
+    font-size: 2.4rem;
+    letter-spacing: 0.7rem;
+    font-weight: 500;
+}
+
 p {
     font-size: 2rem;
     letter-spacing: 0.3rem;
@@ -32,6 +38,7 @@ p {
 img {
     width: 100%;
     object-fit: cover;
+    height: 100%;
 }
 
 .circles {
@@ -62,14 +69,16 @@ img {
     transition: 1s ease;
 }
 
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 
-/* Intro */
+/*** Intro ***/
 
 #game-intro .text {
-    transform: translate(50%, -50%);
-    position: absolute;
-    right: 50%;
-    top: 50%;
     text-align: center;
     width: 75%;
     display: flex;
@@ -92,6 +101,11 @@ img {
     width: 100%;
     bottom: -0.5%;
     animation: show-animation 2s ease;
+    height: 40vh;
+}
+
+#game-intro .wave img {
+    height: 40vh;
 }
 
 
@@ -173,16 +187,17 @@ img {
 
 }
 
-/* End Intro */
+/*** End Intro ***/
 
 
-/* Game */
+/*** Game ***/
 #game {
     opacity: 0;
     position: relative;
     z-index: -1;
     transition: opacity 0.8s ease 1s;
-    overflow: hidden;    
+    overflow: hidden; 
+    height: 100vh;   
 }
 
 #game.transition {
@@ -199,7 +214,8 @@ img {
 #game-info .game-info-container {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 80%;
+    max-width: 1250px;
     margin: 0 auto;
     align-items: center;
     padding-top: 20px;
@@ -219,18 +235,22 @@ img {
 
 #game-info .round {
     font-weight: 600;
+    line-height: 3rem;
+    text-align: center;
 }
-
 /* End Game Info */
+
 /* Selection */
+#selection {
+    width: 100%;
+}
 
 #selection .selection-container {
     display: flex;
+    margin: 0 auto;
     flex-direction: column;
     align-items: center;
     width: 80%;
-    margin: 0 auto;
-    min-height: 100vh;
     justify-content: center;
 }
 
@@ -241,12 +261,15 @@ img {
 
 #selection .options {
     display: flex;
-    gap: 200px;
+    width: 100%;
+    gap: 11%;
     margin-top: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 #selection .options .option {
-    width: 150px;
+    max-width: 150px;
     cursor: pointer;
 }
 
@@ -255,7 +278,46 @@ img {
 }
 /* End Selection */
 
-/* End Game */
+/* Round */
+
+#round {
+    width: 100%;
+    display: none;
+}
+
+#round .round-container {
+    display: flex;
+    margin: 0 auto;
+    width: 75%;
+    max-width: 1000px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#round .player-side, 
+#round .cpu-side {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+#round .cpu-side {
+    flex-direction: row-reverse;
+}
+
+#round .player-selection,
+#round .cpu-selection {
+    max-width: 150px;
+}
+
+#round .cpu-selection img {
+    transform: rotate(180deg);
+    transform: scaleX(-1);
+}
+
+/* End Round */
+
+/*** End Game ***/
 
 /* Keyframes */
 

@@ -16,7 +16,7 @@
   </head>
   <body>
     <section id="game-intro">
-      <div class="text">
+      <div class="text center">
         <h1 class="title">ROCK PAPER SCISSORS!</h1>
         <button class="play-btn">Play</button>
       </div>
@@ -52,7 +52,7 @@
         </div>
       </section>
       
-      <section id="selection">
+      <section id="selection" class="center">
         <div class="selection-container">
           <p>Choose an option</p>
           <div class="options">
@@ -65,6 +65,19 @@
             <div id="scissors" class="option">
               <img src="images/scissors.png" alt="scissors" draggable="false"/>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="round" class="center">
+        <div class="round-container">
+          <div class="player-side">
+            <h2>Player</h2>
+            <div class="player-selection"><img src="images/rock.png" alt="rock"></div>
+          </div>
+          <div class="cpu-side">
+            <h2>CPU</h2>
+            <div class="cpu-selection"><img src="images/scissors.png" alt="scissors"></div>
           </div>
         </div>
       </section>

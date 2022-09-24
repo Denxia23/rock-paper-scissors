@@ -75,9 +75,14 @@ function main() {
     gameSection.classList.add("transition");
     circles.classList.add("transition");
   });
+
+  circles.addEventListener("transitionend", () => {
+    circles.replaceChildren();
+  });
   
   rockDiv.addEventListener("click", () => {
     game(rockDiv.getAttribute("id"));
+
   });
   paperDiv.addEventListener("click", () => {
     game(paperDiv.getAttribute("id"));
