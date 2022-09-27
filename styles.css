@@ -243,6 +243,7 @@ img {
 /* Selection */
 #selection {
     width: 100%;
+    transition: 0.3s ease 0.3s;
 }
 
 #selection .selection-container {
@@ -276,22 +277,35 @@ img {
 #selection img {
     transform: rotate(-90deg);
 }
+
+#selection.transition {
+    top: 40%;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
 /* End Selection */
 
 /* Round */
 
 #round {
     width: 100%;
-    display: none;
+    opacity: 0;
+    z-index: -2;
+    transition: 0.3s ease;
+    transition-property: z-index, opacity;
 }
 
 #round .round-container {
     display: flex;
     margin: 0 auto;
-    width: 75%;
+    width: 30%;
     max-width: 1000px;
     align-items: center;
+    transition: 2s ease;
+    transition-property: width;
     justify-content: space-between;
+    
 }
 
 #round .player-side, 
@@ -308,6 +322,7 @@ img {
 #round .player-selection,
 #round .cpu-selection {
     max-width: 150px;
+    transition: transform 0.2s ease;
 }
 
 #round .cpu-selection img {
@@ -315,6 +330,25 @@ img {
     transform: scaleX(-1);
 }
 
+#round.transition {
+    opacity: 1;
+    z-index: 1;
+    transition: 0.3s ease 0.3s;
+}
+
+#round.transition .round-container {
+    width: 75%;
+}
+
+#round.transition .player-selection.lose {
+    transform: rotate(-90deg);
+    transition: transform 0.5s ease 1s;
+}
+
+#round.transition .cpu-selection.lose {
+    transform: rotate(90deg);
+    transition: transform 0.5s ease 1s;
+}
 /* End Round */
 
 /*** End Game ***/
@@ -342,3 +376,11 @@ img {
   }
 
 /* End Keyframes */
+
+/* Media Queries */
+
+@media screen and (max-width: 1500px) {
+    #round .round-container {
+        transition-duration: 0.5s;
+    }
+}

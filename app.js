@@ -26,29 +26,41 @@ function playRound(playerChoice, computerChoice) {
 
 function game(playerChoice) {
   let computerChoice = getComputerSelection();
+  cSelectionImg.src = `images/${computerChoice}.png`;
+  pSelectionDiv.appendChild(pSelectionImg);
+  cSelectionDiv.appendChild(cSelectionImg);  
+
   let roundWinner = playRound(playerChoice, computerChoice);
-  
   switch (roundWinner) {
     case "player":
       console.log("You Win! " + playerChoice + " Beats " + computerChoice);
       playerScore++;
+      cSelectionDiv.classList.add("lose");
       pScore.innerText = playerScore;
       break;
     case "computer":
       console.log("You Lose! " + computerChoice + " Beats " + playerChoice);
       computerScore++;
+      pSelectionDiv.classList.add("lose");
       cScore.innerText = computerScore;
       break;
     case "none":
       console.log("It's a Tie!");
+      pSelectionDiv.classList.add("lose");
+      cSelectionDiv.classList.add("lose");
       break;
   };
   roundNum++;
   round.innerText = `Round ${roundNum}`;
+  roundSect.addEventListener("transitionend", removeTransitionClass);
 };
 
 function removeTransitionClass(e) {
-  this.classList.remove("transition");
+  if (e.propertyName !== "transform") return;
+  roundSect.classList.remove("transition");
+  selectionSect.classList.remove("transition");
+  pSelectionDiv.classList.remove("lose");
+  cSelectionDiv.classList.remove("lose");
 };
 
 
@@ -62,17 +74,20 @@ const pScore = document.querySelector("#game-info #p-points");
 const cScore = document.querySelector("#game-info #c-points");
 const playButton = document.querySelector("#game-intro .play-btn");
 const textDiv = document.querySelector("#game-intro .text");
-const gameSection = document.querySelector("#game");
+const gameSect = document.querySelector("#game");
 const round = document.querySelector("#game-info .round");
 const circles = document.querySelector("#game-intro .circles");
-
-
-
+const selectionSect = document.querySelector("#game #selection");
+const roundSect = document.querySelector("#game #round");
+const pSelectionImg = document.createElement("img");
+const cSelectionImg = document.createElement("img");
+const pSelectionDiv = document.querySelector("#game #round .player-selection");
+const cSelectionDiv = document.querySelector("#game #round .cpu-selection");
 
 function main() {
   playButton.addEventListener("click", () => {
     textDiv.classList.add("transition");
-    gameSection.classList.add("transition");
+    gameSect.classList.add("transition");
     circles.classList.add("transition");
   });
 
@@ -81,13 +96,22 @@ function main() {
   });
   
   rockDiv.addEventListener("click", () => {
+    selectionSect.classList.add("transition");
+    roundSect.classList.add("transition");
+    pSelectionImg.src = "images/rock.png"
     game(rockDiv.getAttribute("id"));
 
   });
   paperDiv.addEventListener("click", () => {
+    selectionSect.classList.add("transition");
+    roundSect.classList.add("transition");
+    pSelectionImg.src = "images/paper.png"
     game(paperDiv.getAttribute("id"));
   });
   scissorsDiv.addEventListener("click", () => {
+    selectionSect.classList.add("transition");
+    roundSect.classList.add("transition");
+    pSelectionImg.src = "images/scissors.png"
     game(scissorsDiv.getAttribute("id"));
   });
 
