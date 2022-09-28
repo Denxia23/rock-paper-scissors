@@ -76,6 +76,20 @@ img {
     transform: translate(-50%,-50%);
 }
 
+.play-btn {
+    width: 200px;
+    height: 50px;
+    border-radius: 12px;
+    border: 3px solid #636363;
+    background-color: #FAFAFA;
+    font-family: "fredoka", sans-serif;
+    font-size: 2.4rem;
+    color: #636363;
+    font-weight: 400;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
 /*** Intro ***/
 
 #game-intro .text {
@@ -102,6 +116,11 @@ img {
     bottom: -0.5%;
     animation: show-animation 2s ease;
     height: 40vh;
+    transition: opacity 1s ease;
+}
+
+#game-intro .wave.transition {
+    opacity: 0;
 }
 
 #game-intro .wave img {
@@ -109,19 +128,6 @@ img {
 }
 
 
-#game-intro .play-btn {
-    width: 200px;
-    height: 50px;
-    border-radius: 12px;
-    border: 3px solid #636363;
-    background-color: #FAFAFA;
-    font-family: "fredoka", sans-serif;
-    font-size: 2.4rem;
-    color: #636363;
-    font-weight: 400;
-    margin-top: 30px;
-    cursor: pointer;
-}
 
 #game-intro .circles :nth-child(1) {
     left: 10%;
@@ -246,6 +252,17 @@ img {
     transition: 0.3s ease 0.3s;
 }
 
+#selection.transition {
+    top: 40%;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+#selection.fadeOut {
+    opacity: 0;
+    z-index: -1;
+}
 #selection .selection-container {
     display: flex;
     margin: 0 auto;
@@ -278,12 +295,7 @@ img {
     transform: rotate(-90deg);
 }
 
-#selection.transition {
-    top: 40%;
-    opacity: 0;
-    transition: 0.3s ease;
-    pointer-events: none;
-}
+
 /* End Selection */
 
 /* Round */
@@ -302,7 +314,7 @@ img {
     width: 30%;
     max-width: 1000px;
     align-items: center;
-    transition: 2s ease;
+    transition: 0.5s ease;
     transition-property: width;
     justify-content: space-between;
     
@@ -337,6 +349,7 @@ img {
 }
 
 #round.transition .round-container {
+    transition: 1.5s ease;
     width: 75%;
 }
 
@@ -350,6 +363,35 @@ img {
     transition: transform 0.5s ease 1s;
 }
 /* End Round */
+
+/* Game End */
+#game-end {
+    width: 100%;
+    opacity: 0;
+    z-index: -10;
+    transition: 1s ease 2s;
+    transition-property: opacity;
+}
+
+#game-end .game-end-container {
+    text-align: center;
+}
+
+#game-end .play-btn {
+    font-size: 2.1rem;
+    width: 200px;
+}
+
+#game-end h2 {
+    margin-bottom: 10px;
+    font-size: 3.2rem;
+}
+
+#game-end.transition {
+    opacity: 1;
+    z-index: 3;
+}
+
 
 /*** End Game ***/
 
@@ -380,7 +422,7 @@ img {
 /* Media Queries */
 
 @media screen and (max-width: 1500px) {
-    #round .round-container {
+    #round.transition .round-container {
         transition-duration: 0.5s;
     }
 }

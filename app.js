@@ -53,6 +53,24 @@ function game(playerChoice) {
   roundNum++;
   round.innerText = `Round ${roundNum}`;
   roundSect.addEventListener("transitionend", removeTransitionClass);
+  
+  if (playerScore === 5 || computerScore === 5) {
+    gameEnd();
+  };
+};
+
+
+function gameEnd() {
+  let messages = ["You Won, congratulations!", "You lost, better luck next time!"]
+  selectionSect.classList.add("fadeOut");
+  if (playerScore > computerScore) {
+    endMsg.innerText = messages[0];
+  } else {
+    endMsg.innerText = messages[1];
+  };
+  gameEndSect.classList.add("transition");
+
+
 };
 
 function removeTransitionClass(e) {
@@ -83,12 +101,17 @@ const pSelectionImg = document.createElement("img");
 const cSelectionImg = document.createElement("img");
 const pSelectionDiv = document.querySelector("#game #round .player-selection");
 const cSelectionDiv = document.querySelector("#game #round .cpu-selection");
+const wave = document.querySelector("#game-intro .wave");
+const endMsg = document.querySelector("#game #game-end .end-msg");
+const gameEndSect = document.querySelector("#game #game-end");
 
 function main() {
+  console.log(playerScore);
   playButton.addEventListener("click", () => {
     textDiv.classList.add("transition");
     gameSect.classList.add("transition");
     circles.classList.add("transition");
+    wave.classList.add("transition");
   });
 
   circles.addEventListener("transitionend", () => {
@@ -115,14 +138,6 @@ function main() {
     game(scissorsDiv.getAttribute("id"));
   });
 
-
-  if (playerScore > computerScore) {
-    let gameWinner = "player";
-  } else {
-    let gameWinner = "computer";
-  };
 };
-
-
 
 main();
