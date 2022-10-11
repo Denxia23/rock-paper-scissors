@@ -76,7 +76,7 @@ img {
     transform: translate(-50%,-50%);
 }
 
-.play-btn {
+.btn {
     width: 200px;
     height: 50px;
     border-radius: 12px;
@@ -127,8 +127,6 @@ img {
     height: 40vh;
 }
 
-
-
 #game-intro .circles :nth-child(1) {
     left: 10%;
     animation-duration: 10s;
@@ -139,7 +137,6 @@ img {
     width: 70px;
     height: 70px;
     animation-duration: 12s;
-
 }
 
 #game-intro .circles :nth-child(3) {
@@ -150,7 +147,6 @@ img {
 #game-intro .circles :nth-child(4) {
     left: 90%;
     animation-duration: 20s;
-
 }
 
 #game-intro .circles :nth-child(5) {
@@ -158,25 +154,21 @@ img {
     width: 70px;
     height: 70px;
     animation-duration: 15s;
-
 }
 
 #game-intro .circles :nth-child(6) {
     left: 4%;
     animation-duration: 17s;
-
 }
 
 #game-intro .circles :nth-child(7) {
     left: 19%;
     animation-duration: 17s;
-
 }
 
 #game-intro .circles :nth-child(8) {
     left: 50%;
     animation-duration: 16s;
-
 }
 
 #game-intro .circles :nth-child(9) {
@@ -184,13 +176,11 @@ img {
     width: 70px;
     height: 70px;
     animation-duration: 9s;
-
 }
 
 #game-intro .circles :nth-child(10) {
     left: 90%;
     animation-duration: 10s;
-
 }
 
 /*** End Intro ***/
@@ -262,6 +252,7 @@ img {
 #selection.fadeOut {
     opacity: 0;
     z-index: -1;
+    pointer-events: none;
 }
 #selection .selection-container {
     display: flex;
@@ -317,7 +308,6 @@ img {
     transition: 0.5s ease;
     transition-property: width;
     justify-content: space-between;
-    
 }
 
 #round .player-side, 
@@ -369,7 +359,7 @@ img {
     width: 100%;
     opacity: 0;
     z-index: -10;
-    transition: 1s ease 2s;
+    transition: 0.3s ease;
     transition-property: opacity;
 }
 
@@ -377,7 +367,7 @@ img {
     text-align: center;
 }
 
-#game-end .play-btn {
+#game-end .replay.btn {
     font-size: 2.1rem;
     width: 200px;
 }
@@ -390,9 +380,8 @@ img {
 #game-end.transition {
     opacity: 1;
     z-index: 3;
+    transition: 1s ease 2s;
 }
-
-
 /*** End Game ***/
 
 /* Keyframes */
