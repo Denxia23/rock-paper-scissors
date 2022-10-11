@@ -1,13 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="app.js"></script>
-</head>
-<body>
-    
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section id="game-intro">
+      <div class="text center">
+        <h1 class="title">ROCK PAPER SCISSORS!</h1>
+        <button class="play btn">Play</button>
+      </div>
+      <div class="wave">
+        <img src="images/wave.svg" alt="">
+      </div>
+      <div class="circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </section>
+    <section id="game">
+      
+      <section id="game-info">
+        <div class="game-info-container">
+          <div class="player-points">
+            <p class="points" id="p-points">0</p>
+            <p>Player</p>
+          </div>
+          <p class="round">Round 1</p>
+          <div class="cpu-points">
+            <p class="points" id="c-points">0</p>
+            <p>CPU</p>
+          </div>
+        </div>
+      </section>
+      
+      <section id="selection" class="center">
+        <div class="selection-container">
+          <p>Choose an option</p>
+          <div class="options">
+            <div id="rock" class="option">
+              <img src="images/rock.png" alt="rock" draggable="false"/>
+            </div>
+            <div id="paper" class="option">
+              <img src="images/paper.png" alt="paper" draggable="false"/>
+            </div>
+            <div id="scissors" class="option">
+              <img src="images/scissors.png" alt="scissors" draggable="false"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="round" class="center">
+        <div class="round-container">
+          <div class="player-side">
+            <h2>Player</h2>
+            <div class="player-selection"></div>
+          </div>
+          <div class="cpu-side">
+            <h2>CPU</h2>
+            <div class="cpu-selection"></div>
+        </div>
+      </section>
+      <section id="game-end" class="center">
+          <div class="game-end-container">
+          <h2 class="end-msg"></h2>
+          <button class="replay btn">Play Again</button>
+        </div>
+      </section>
+    </section>
 </body>
 </html>
