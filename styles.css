@@ -103,6 +103,7 @@ img {
     opacity: 1;
     pointer-events: all;
     animation: show-animation 2s ease;
+    z-index: 100;
 }
 
 #game-intro .text.transition {
